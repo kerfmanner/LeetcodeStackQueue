@@ -38,15 +38,17 @@ class StackLinkedList:
         return self.top.data
 
 class MyQueue:
-
+    '''Implementation of a queue using stacks.'''
     def __init__(self):
         self.mainstack = StackLinkedList()
         self.storestack = StackLinkedList()
 
     def push(self, x: int) -> None:
+        '''Push an item onto the queue.'''
         self.mainstack.push(x)
 
     def pop(self) -> int:
+        '''Return the front element of the queue and remove it.'''
         if self.empty():
             return None
 
@@ -61,6 +63,7 @@ class MyQueue:
         return first
 
     def peek(self) -> int:
+        '''Return the front item of the queue without removing it.'''
         if self.empty():
             return None
 
@@ -73,7 +76,9 @@ class MyQueue:
             element = self.storestack.pop()
             self.mainstack.push(element)
         return first
-        
+
 
     def empty(self) -> bool:
+        '''Check if the queue is empty.'''
         return self.mainstack.is_empty()
+
